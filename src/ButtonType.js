@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 
 class ButtonType extends Component {
-  constructor() {
-    super();
-    this.typePokemon = this.typePokemon.bind(this);
-  }
-
   typePokemon() {
     let { setPokemons, setIndex, index } = this.props.values;
     index = 0;
@@ -14,7 +9,11 @@ class ButtonType extends Component {
   }
 
   render() {
-    return <button className='btn-types' onClick={this.typePokemon}>{this.props.type || 'All'}</button>;
+    return (
+      <button className="btn-types" onClick={this.typePokemon.bind(this)}>
+        {this.props.type || 'All'}
+      </button>
+    );
   }
 }
 
