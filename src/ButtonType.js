@@ -14,7 +14,7 @@ class ButtonType extends Component {
   }
 
   render() {
-    return <button onClick={this.typePokemon}>{this.props.type || 'All'}</button>;
+    return <button className='btn-types' onClick={this.typePokemon}>{this.props.type || 'All'}</button>;
   }
 }
 

@@ -1,4 +1,4 @@
-/* .pokedex {
+.pokedex {
   margin: auto;
   width: 40%;
   display: flex;
@@ -35,7 +35,8 @@
     font-size: initial;
     font-family: Helvetica Neue;
     font-weight: 900;
-    font-style: normal
+    font-style: normal;
+    border-left: 1px solid black;
 }
 
 .btn-next {
@@ -54,4 +55,4 @@
     font-family: Helvetica Neue;
     font-weight: 900;
     font-style: normal
-} */
+}
