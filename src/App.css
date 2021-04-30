@@ -1,3 +1,87 @@
-.App {
-  text-align: center;
+*{
+margin: 0;
+padding: 0;
+
+
+}
+body{
+  background-color: gray;
+}
+
+header{
+font-size: 30px;
+display: flex;
+justify-content: center;
+background-color: rgb(49, 49, 49);
+align-content: center;
+height: 200px;
+}
+
+header h1{
+font-family: Pokemon;
+padding-top: 30px;
+color: rgb(209, 0, 0);
+font-weight: 300;
+}
+
+.pokeball{
+width: 60px;
+padding-left: 10px;
+padding-top: 25px;
+}
+
+main{
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 100vh;
+}
+
+.pokemon{
+  font-family: 'New Tegomin', serif;
+  border: 1px solid black;
+  box-shadow: 10px 5px 5px rgb(255, 218, 68);
+  width: 550px;
+  height: 25vh;
+  max-width: 550px;
+  max-height: 25vh;
+  margin-top: 15%;
+  margin-bottom: 25px;
+  font-size: 20px;
+  background-color: blue;
+
+}
+.pokeball-info{
+width: 45px;
+padding-left: 10px;
+padding-top: 25px;
+}
+
+.imgPokemon{
+  width: 170px;
+}
+
+.listBtn{
+display: flex;
+flex-wrap: wrap;
+margin: 15px;
+
+}
+.btnType{
+background-color: orange;
+box-shadow: 10px 5px 5px rgb(111, 89, 2);
+margin: 5px;
+width: 70px;
+height: 35px;
+}
+.listNext{
+
+  
+}
+
+.btnNext{
+background-color: green;
+box-shadow: 10px 5px 5px rgb(111, 89, 2);
+width: 70px;
+height: 45px;
 }
