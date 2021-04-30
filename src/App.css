@@ -27,10 +27,6 @@ h2 {
   color: white;
 }
 
-h1 {
-  color: darkgoldenrod;
-}
-
 .pokemon:hover {
   transform: scale(1.05);
 }
