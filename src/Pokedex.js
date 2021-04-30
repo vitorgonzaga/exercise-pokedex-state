@@ -10,7 +10,6 @@ class Pokedex extends React.Component {
 
     this.types = ['All', ...new Set(this.props.pokemons.map(pokemon => pokemon.type))].sort();
     this.state = {
-      // pokemonsTypes: data,
       position: 0,
 
     };
