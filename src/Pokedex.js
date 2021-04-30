@@ -1,68 +1,48 @@
-import React from 'react';
-import './PokedexCSS.css';
+import PropTypes from 'prop-types';
 import Pokemon from './Pokemon';
-import Button from './Button';
-import ButtonType from './ButtonType';
+import React from 'react';
 
 class Pokedex extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
     this.state = {
-      index: 0,
-      pokemons: false,
-    };
-
-    this.setIndex = this.setIndex.bind(this);
-    this.setPokemons = this.setPokemons.bind(this);
-    this.filterPokemons = this.filterPokemons.bind(this);
+      position: 0,
+    }
+    this.nextPokemon = this.nextPokemon.bind(this);
   }
 
-  setIndex(value) {
-    this.setState((ant, _props) => ({
-      index: value,
-    }));
-  }
-
-  setPokemons(value) {
-    this.setState((ant, _props) => ({
-      pokemons: value,
-    }));
-  }
-
-  filterPokemons() {
-    return this.props.pokemons.filter(
-      ({ type }) => type === this.state.pokemons || !this.state.pokemons,
-    );
+  nextPokemon() {
+    const { pok } = this.props;
+    this.setState((previousState, _props) => {
+      const { position } = previousState;
+      const indexAtual = position === pok.length - 1 ? 0 : position + 1;
+      return { ...previousState, position: indexAtual }
+    }
+    )
   }
 
   render() {
-    const values = {
-      index: this.state.index,
-      statePokemon: this.state.pokemons,
-      pokemons: this.filterPokemons(),
-      setIndex: this.setIndex,
-      setPokemons: this.setPokemons,
-    };
-
-    const filterTypes = [...this.props.pokemons].map(({ type }) => type);
-    const listTypes = filterTypes.filter((elem, idx, arr) => arr.indexOf(elem) === idx);
-    const btnsType = listTypes.map((types, index) => <ButtonType key={index} values={values} type={types} />);
-
     return (
-      <div className="pokedex">
-        <Pokemon pokemon={values.pokemons[values.index]} />
-
-        <div className="row-btn-types">
-          <ButtonType values={values} type={false} />
-          {btnsType}
+      <>
+        <div className="App">
+          <Pokemon poke={this.props.pok[this.state.position]} />
         </div>
-
-        <div className="row-btn-next">
-          <Button key='next'values={values} />
-        </div>
-      </div>
-    );
+        <button onClick={this.nextPokemon}>Next Podemon!</button>
+      </>
+    )
   }
 }
+
+Pokedex.propTypes = {
+  pok: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    averageWeight: PropTypes.shape({
+      value: PropTypes.number.isRequired,
+      measurementUnit: PropTypes.string.isRequired,
+    }).isRequired,
+    image: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default Pokedex;
