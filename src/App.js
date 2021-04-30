@@ -6,7 +6,8 @@ import Pokedex from './Pokedex';
 function App() {
   return (
     <div className="App">
-      <h1> Pokedex By DiegoSerafim</h1>
+      <h1> Pokedex By DiegoSerafim Resolvendo conflitos
+        :(</h1>
       <Pokedex pokemons={pokemons} />
     </div>
   );
