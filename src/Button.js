@@ -1,13 +1,21 @@
 import React from 'react';
-
-class Button extends React.Component {
-  render() {
-    const { type } = this.props
-
-    return (
-      <button> {type} </button >
-    )
+import './styles/Button.css';
+const Button = ({ onClick, type, disable, className }) => {
+  const colorType = {
+      Normal: 'normalColor',
+      Fire: 'fireColor',
+      Poison: 'poisonColor',
+      Dragon: 'dragonColor',
+      Psychic: 'psychicColor',
+      Bug: 'bugColor',
+      Electric: 'electricColor'
   }
-}
-
-export default Button; 
+    return (
+    <div>
+      <button onClick={onClick} disable={disable} className={`${className} ${colorType[type]}`}>
+        {type}
+      </button>
+    </div>
+  );
+};
+export default Button;
